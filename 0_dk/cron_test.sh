@@ -2,6 +2,6 @@
 
 set -x
 
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit
 
-echo "chon_test" >> cron_test.log
+echo "chon_test : $(date +'%Y-%m-%d:%H:%M:%S')" >>cron_test.log

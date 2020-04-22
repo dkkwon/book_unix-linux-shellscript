@@ -8,6 +8,14 @@ https://www.digitalocean.com/community/tutorials/how-to-use-cron-to-automate-tas
 
 
 ### Basic Info
+- Cron is a time-based job scheduling daemon found in Unix-like operating systems
+- Cron runs in the background and tasks scheduled with cron, referred to as “cron jobs,
+- Cron jobs are recorded and managed in a special file known as a crontab.
+
+- User 별 계정 사용 or /etc/crontab
+- cron script 주의사항 : 현재 디렉토리(user hoem), 환경변수 (PATH, SHELL)
+
+
 ```
 # Linux: crond
 # FreeBSD: cron
@@ -38,18 +46,23 @@ https://www.digitalocean.com/community/tutorials/how-to-use-cron-to-automate-tas
 # man cron: describe cron daemon
 ```
 
-### How to edit
-```
-crontab -l > crontab_my
-vim crontab_my
-crontab crontab_my
-```
-
 ### How to enable cron
 ```
+$ sudo apt install cron
 $ sudo systemctl enable cron
 Synchronizing state of cron.service with SysV service script with /lib/systemd/systemd-sysv-install.
 Executing: /lib/systemd/systemd-sysv-install enable cron
+```
+
+### How to edit
+```
+// case-1
+crontab -e
+
+// case-2
+crontab -l > crontab_my
+vim crontab_my
+crontab crontab_my
 ```
 
 ### How to check crontab log
